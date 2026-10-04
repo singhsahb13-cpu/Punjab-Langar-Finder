@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Punjab Langar Finder</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ===============================
+     WELCOME SCREEN
+     =============================== -->
+
+<section id="welcomeScreen" class="welcome-screen">
+
+    <div class="welcome-box">
+
+        <div class="welcome-icon">
+            🙏
+        </div>
+
+        <h1>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ</h1>
+
+        <h2>
+            ਪੰਜਾਬ ਲੰਗਰ ਫਾਈਂਡਰ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ
+        </h2>
+
+        <p>
+            🍲 ਲੰਗਰ ਦੀ ਜਾਣਕਾਰੀ ਲੱਭੋ ਅਤੇ ਸਾਂਝੀ ਕਰੋ
+        </p>
+
+        <button onclick="document.getElementById('welcomeScreen').style.display='none'; document.getElementById('mainWebsite').style.display='block';">
+            Next ➡️
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ===============================
+     MAIN WEBSITE
+     =============================== -->
+
+<div id="mainWebsite">
+
+<header>
+
+    <div class="logo">
+        🍲 Punjab Langar Finder
+    </div>
+
+    <div class="owner">
+        Website Owner<br>
+        <strong>Amritpal Singh</strong>
+    </div>
+
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <p class="gurbani">
+            "ਵੰਡ ਛਕੋ, ਕਿਰਤ ਕਰੋ, ਨਾਮ ਜਪੋ"
+        </p>
+
+        <h1>ਪੰਜਾਬ ਵਿੱਚ ਲੰਗਰ ਲੱਭੋ</h1>
+
+        <p class="intro">
+            ਆਪਣੇ ਨੇੜੇ ਲੰਗਰ, ਸਮਾਂ, ਭੋਜਨ, ਪਤਾ ਅਤੇ ਸੰਪਰਕ ਦੀ ਜਾਣਕਾਰੀ ਲੱਭੋ।
+        </p>
+
+        <button onclick="document.querySelector('.districts').scrollIntoView()">
+            🍛 ਲੰਗਰ ਲੱਭੋ
+        </button>
+
+    </section>
+
+
+    <!-- ===============================
+         DISTRICTS
+         =============================== -->
+
+    <section class="districts">
+
+        <h2>📍 Punjab ਦੇ Districts</h2>
+
+        <input
+            type="text"
+            id="searchBox"
+            placeholder="🔎 Search District..."
+        >
+
+        <div class="district-grid">
+
+            <button onclick="showLangar('Amritsar')">Amritsar</button>
+            <button onclick="showLangar('Barnala')">Barnala</button>
+            <button onclick="showLangar('Bathinda')">Bathinda</button>
+            <button onclick="showLangar('Faridkot')">Faridkot</button>
+            <button onclick="showLangar('Fatehgarh Sahib')">Fatehgarh Sahib</button>
+            <button onclick="showLangar('Fazilka')">Fazilka</button>
+            <button onclick="showLangar('Ferozepur')">Ferozepur</button>
+            <button onclick="showLangar('Gurdaspur')">Gurdaspur</button>
+            <button onclick="showLangar('Hoshiarpur')">Hoshiarpur</button>
+            <button onclick="showLangar('Jalandhar')">Jalandhar</button>
+            <button onclick="showLangar('Kapurthala')">Kapurthala</button>
+            <button onclick="showLangar('Ludhiana')">Ludhiana</button>
+            <button onclick="showLangar('Malerkotla')">Malerkotla</button>
+            <button onclick="showLangar('Mansa')">Mansa</button>
+            <button onclick="showLangar('Moga')">Moga</button>
+            <button onclick="showLangar('Sri Muktsar Sahib')">Sri Muktsar Sahib</button>
+            <button onclick="showLangar('Pathankot')">Pathankot</button>
+            <button onclick="showLangar('Patiala')">Patiala</button>
+            <button onclick="showLangar('Rupnagar')">Rupnagar</button>
+            <button onclick="showLangar('Mohali')">Mohali</button>
+            <button onclick="showLangar('Sangrur')">Sangrur</button>
+
+            <button onclick="showLangar('Shaheed Bhagat Singh Nagar')">
+                Shaheed Bhagat Singh Nagar
+            </button>
+
+            <button onclick="showLangar('Tarn Taran')">
+                Tarn Taran
+            </button>
+
+        </div>
+
+        <div id="amritsarLangar"></div>
+
+    </section>
+
+
+    <!-- ===============================
+         24×7 LANGAR
+         =============================== -->
+
+    <section class="all-time">
+
+        <h2>♾️ 24×7 Langar</h2>
+
+        <p>
+            ਹਰ ਸਮੇਂ ਉਪਲਬਧ ਲੰਗਰ ਲੱਭੋ।
+        </p>
+
+        <button onclick="showAllTime()">
+            All Time Langar
+        </button>
+
+        <div id="allTimeLangar"></div>
+
+    </section>
+
+
+    <!-- ===============================
+         ADD LANGAR
+         =============================== -->
+
+    <section class="add-langar">
+
+        <h2>➕ ਆਪਣਾ ਲੰਗਰ ਸ਼ਾਮਲ ਕਰੋ</h2>
+
+        <p>
+            ਆਪਣੇ ਇਲਾਕੇ ਦੇ ਲੰਗਰ ਦੀ ਜਾਣਕਾਰੀ ਸਾਂਝੀ ਕਰੋ।
+        </p>
+
+
+        <input
+            type="text"
+            id="district"
+            placeholder="📍 District (e.g. Amritsar)"
+        >
+
+
+        <input
+            type="text"
+            id="langarName"
+            placeholder="🍲 Langar ਦਾ ਨਾਮ"
+        >
+
+
+        <!-- CONTACT OPTIONAL -->
+
+        <input
+            type="text"
+            id="phone"
+            placeholder="📞 Contact Number (Optional)"
+        >
+
+
+        <input
+            type="text"
+            id="food"
+            placeholder="🍚 Food"
+        >
+
+
+        <!-- DATE -->
+
+        <label class="form-label">
+            📅 Langar ਦੀ Date
+        </label>
+
+        <input
+            type="date"
+            id="langarDate"
+        >
+
+
+        <!-- START TIME -->
+
+        <label class="form-label">
+            🕐 Start Time
+        </label>
+
+        <input
+            type="time"
+            id="startTime"
+        >
+
+
+        <!-- END TIME -->
+
+        <label class="form-label">
+            🕐 End Time
+        </label>
+
+        <input
+            type="time"
+            id="endTime"
+        >
+
+
+        <!-- 24x7 -->
+
+        <label class="check">
+
+            <input
+                type="checkbox"
+                id="allTime"
+            >
+
+            ♾️ 24×7 Langar
+
+        </label>
+
+
+        <input
+            type="text"
+            id="address"
+            placeholder="📍 Address"
+        >
+
+
+        <button onclick="submitLangar()">
+            ➕ Submit Langar
+        </button>
+
+
+        <div id="savedLangar"></div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>🍲 Punjab Langar Finder</p>
+
+    <p>Seva • Equality • Humanity</p>
+
+    <p>© 2026 Amritpal Singh</p>
+
+</footer>
+
+</div>
+
+
+<!-- ===============================
+     FIREBASE
+     =============================== -->
+
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore-compat.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
